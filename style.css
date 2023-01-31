@@ -33,3 +33,12 @@ video {
 #welcomeuser {
   display: none;
 }
+
+.ui.menu .active.item {
+  background: rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.95);
+  font-weight: normal;
+  box-shadow: none;
+}
+
+
