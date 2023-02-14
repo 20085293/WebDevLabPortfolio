@@ -1,6 +1,7 @@
 /* If you're feeling fancy you can add interactivity 
     to your site with Javascript */
 
+// prints "hi" in the browser's dev tools console
 console.log("Hello from the Web App Dev 1 lab!");
 
 const greenbtn = document.querySelector(".green");
@@ -36,7 +37,7 @@ redbtn &&
 
 welcomeUserDiv &&
   welcomeUserDiv.addEventListener("click", (evt) => {
-   // evt.currentTarget.style.display = "none";
+    // evt.currentTarget.style.display = "none";
     welcomeUserDiv.style.display = "none";
   });
 
@@ -73,7 +74,7 @@ const sonatas = {
     } else {
       document.querySelector(
         "#rating"
-      ).innerHTML = `You gave a rating of: `;
+      ).innerHTML = `You gave a rating of: <div class="ui star rating" ></div>`;
       for (let i = 0; i < userRating; i++) {
         document.querySelector(
           "#rating"
@@ -83,26 +84,24 @@ const sonatas = {
   },
 };
 
+$("#tableoutput").html(`<h2 class='ui header'> ${sonatas.title}</h2>`);
+$("#tableoutput").append(
+  `<table class='ui fixed striped table'><thead><tr><th>Song</th><th>Artist</th></tr></thead><tbody>`
+);
 
-  $("#tableoutput").html(`<h2 class='ui header'> ${sonatas.title}</h2>`);
-  $("#tableoutput").append(
-    `<table class='ui fixed striped table'><thead><tr><th>Song</th><th>Artist</th></tr></thead><tbody>`
+for (let thesong of sonatas.songs) {
+  $("#tableoutput tbody").append(
+    `<tr><td>${thesong.title}</td><td>${thesong.artist}</td></tr>`
   );
+}
 
-  for (let thesong of sonatas.songs) {
-    $("#tableoutput tbody").append(
-      `<tr><td>${thesong.title}</td><td>${thesong.artist}</td></tr>`
-    );
-  }
+$("#tableoutput").append(`</tbody></table>`);
+$("#tableoutput").append(`<p><span id="rating"> </span></p>`);
+$("#tableoutput").append(
+  `<button class="ui blue button" id = "ratingbtn"> Rate it! <i class="star icon"></i></button>`
+);
 
-  $("#tableoutput").append(`</tbody></table>`);
-  $("#tableoutput").append(`<p><span id="rating"> </span></p>`);
-  $("#tableoutput").append(
-    `<button class="ui blue button" id = "ratingbtn"> Rate it! <i class="star icon"></i></button>`
-  );
-
-  let rbtn = $("#ratingbtn");
-  rbtn.on("click", () => {
-    sonatas.getRating();
-  });
-
+let rbtn = $("#ratingbtn");
+rbtn.on("click", () => {
+  sonatas.getRating();
+});
