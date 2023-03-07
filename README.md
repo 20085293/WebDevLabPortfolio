@@ -1,9 +1,10 @@
-Lab 3
+Lab 6
 =================
 
-- Adding node files (package.json, server.js, routes.js)
-- Adding logging facility (utils/logger.js)
-- Changed from HTML files to views (inc. layout and partials)
-- Created controllers to populate the views
-- Updated routes.js file and menu links
-- Move style.css and script.js to public folder
+- Created add playlist function
+- Created add song function
+- Added JSON store to make changes permanent
+
+Exercises:
+- Expanded add playlist form to include duration
+- Expanded add song form to include duration and genre
